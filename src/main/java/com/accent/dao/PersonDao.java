@@ -1,4 +1,4 @@
-package com.nt.dao;
+package com.accent.dao;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -8,4 +8,5 @@ public interface PersonService {
 	
 	public List<Person> getMaleGender(String gender);
 
+	public List<Person> getFemaleGender(String gender);
 }

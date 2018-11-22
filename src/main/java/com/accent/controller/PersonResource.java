@@ -21,17 +21,34 @@ public class PersonResource {
 
 	@Autowired
 	private PersonService service;
+	List<Person> personList = null;
 
 	@GET
 	@Path("/{gender}")
 	@Produces(MediaType.APPLICATION_JSON)
 	public List<Person> getSortedDataMale(@PathParam("gender") String gender){
 
+
+
 		if(gender == null)
 			new NullPointerException("Gender value is null pls give the value::");
 
-		List<Person> personList = service.getMaleGender(gender);
+
+		else if(gender.equals("male")){
+			personList = service.getMaleGender(gender);
+			return personList;
+
+		}
+
+		else if(gender.equals("female")){
+			personList = service.getFemaleGender(gender);
+			System.out.println("hii bro it"+personList);
+			return personList;
+		}
+		
 		return personList;
+
+
 
 
 	}

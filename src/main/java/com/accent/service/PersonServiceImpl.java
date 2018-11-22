@@ -21,11 +21,11 @@ public class PersonServiceImpl implements PersonService {
 	@Override
 	public List<Person> getMaleGender(String gender) {
 		
-		System.out.println("hiii");
+		
 		List<Person> maleList = dao.getAllMaleGender(gender);
 
 		List<Person> personList = maleList.stream()
-				.sorted((p1,p2)->p1.getAge()-p2.getAge())
+				.sorted((p1,p2)->-p1.getAge()+p2.getAge())
 				.collect(Collectors.toList());
 		
 		System.out.println(personList);
@@ -34,7 +34,7 @@ public class PersonServiceImpl implements PersonService {
 	
 	public List<Person> getFemaleGender(String gender){
 		List<Person> femaleList = dao.getAllFemaleGender(gender);
-		femaleList.stream().sorted((p1,p2) ->p1.getAge()+p2.getAge()).collect(Collectors.toList());
+		femaleList.stream().sorted((p1,p2) ->p1.getAge() - (p2.getAge())).collect(Collectors.toList());
 		System.out.println(femaleList);
 		
 		return femaleList;
